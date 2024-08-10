@@ -1,18 +1,21 @@
-server:
-  port: 9090
-
 spring:
-  application:
-    name: spring-securty
+  spring:
+    h2:
+      console:
+        enabled: true
+        path: /h2
   datasource:
-    url: jdbc:mysql://localhost:3306/spring-security
-    username: root
-    password: hSelMan%231?!
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: update
-
-
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 security:
   jwt :
     secret : "AJSFDASLKFHALKJHFAJLKHFAJKHFAJFHAFALfsdafsfd"
